@@ -18,7 +18,7 @@ public abstract class VideoMedia extends MediaObject {
     public void checkBrightness() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Regola la luminosità con + o - (premi 0 per continuare)");
+            System.out.println("\n" + "Regola la luminosità con + o - (premi 0 per continuare)");
             String input = scanner.nextLine();
             if (Objects.equals(input, "+")) {
                 increaseBrightness();
@@ -27,7 +27,6 @@ public abstract class VideoMedia extends MediaObject {
                 decreaseBrightness();
                 System.out.println("Brightness: " + getBrightness());
             } else if (Objects.equals(input, "0")) {
-                System.out.println("Continua.");
                 break;
             } else {
                 System.out.println("Input non valido.");

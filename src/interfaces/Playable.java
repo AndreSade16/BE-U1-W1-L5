@@ -7,5 +7,7 @@ public interface Playable {
 
     void decreaseVolume();
 
+    void checkVolume();
+
     void setDuration(int duration);
 }

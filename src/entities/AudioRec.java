@@ -2,6 +2,9 @@ package entities;
 
 import interfaces.Playable;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class AudioRec extends MediaObject implements Playable {
 
     private int duration;
@@ -15,6 +18,7 @@ public class AudioRec extends MediaObject implements Playable {
 
     @Override
     public void execute() {
+        checkVolume();
         play();
     }
 
@@ -49,9 +53,30 @@ public class AudioRec extends MediaObject implements Playable {
     }
 
     @Override
+    public void checkVolume() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Regola il volume con + o - (premi 0 per continuare)");
+            String input = scanner.nextLine();
+            if (Objects.equals(input, "+")) {
+                increaseVolume();
+                System.out.println("Volume: " + volume);
+            } else if (Objects.equals(input, "-")) {
+                decreaseVolume();
+                System.out.println("Volume: " + volume);
+            } else if (Objects.equals(input, "0")) {
+                System.out.println("Continua.");
+                break;
+            } else {
+                System.out.println("Input non valido.");
+            }
+        }
+    }
+
+    @Override
     public void setDuration(int duration) {
         if (duration < 0 || duration > 10) {
-            System.out.println("Inserisci un numero positivo minore di 10");
+            System.out.println("\n" + "Inserisci un numero positivo minore di 10");
         } else {
             this.duration = duration;
         }
