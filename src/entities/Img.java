@@ -8,6 +8,7 @@ public class Img extends VideoMedia {
 
     @Override
     public void execute() {
+        checkBrightness();
         show();
     }
 
@@ -18,7 +19,7 @@ public class Img extends VideoMedia {
     @Override
     public String toString() {
         return "Img{" +
-                "title='" + title + '\'' +
+                "title='" + title + '\'' + ", " +
                 "brightness='" + getBrightness() + '\'' +
                 '}';
     }

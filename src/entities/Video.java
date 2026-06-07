@@ -14,6 +14,7 @@ public class Video extends VideoMedia implements Playable {
 
     @Override
     public void execute() {
+        checkBrightness();
         play();
     }
 
